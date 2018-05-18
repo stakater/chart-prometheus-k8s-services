@@ -2,18 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: kube-system
-  name: kube-controller-manager-prometheus-discovery
+  name: kube-scheduler-prometheus-discovery
   labels:
 {{ include "labels.stakater" . | indent 4 }}
 {{ include "labels.chart" . | indent 4 }}
-    expose:  "{{ .Values.k8sServices.expose }}"
+    expose:  "{{ .Values.prometheusK8sServices.expose }}"
 spec:
   selector:
-{{ include "labels.selector" . | indent 4 }}
+    k8s-app: kube-scheduler
   type: ClusterIP
   clusterIP: None
   ports:
   - name: http-metrics
-    port: 10252
-    targetPort: 10252
+    port: 10251
+    targetPort: 10251
     protocol: TCP

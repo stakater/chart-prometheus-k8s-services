@@ -17,13 +17,13 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 
 {{- define "labels.selector" -}}
 app: {{ template "name" . }}
-group: {{ .Values.k8sServices.labels.group }}
-provider: {{ .Values.k8sServices.labels.provider }}
+group: {{ .Values.prometheusK8sServices.labels.group }}
+provider: {{ .Values.prometheusK8sServices.labels.provider }}
 {{- end -}}
 
 {{- define "labels.stakater" -}}
 {{ template "labels.selector" . }}
-version: "{{ .Values.k8sServices.labels.version }}"
+version: "{{ .Values.prometheusK8sServices.labels.version }}"
 {{- end -}}
 
 {{- define "labels.chart" -}}

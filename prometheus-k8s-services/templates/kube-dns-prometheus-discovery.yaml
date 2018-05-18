@@ -6,10 +6,10 @@ metadata:
   labels:
 {{ include "labels.stakater" . | indent 4 }}
 {{ include "labels.chart" . | indent 4 }}
-    expose:  "{{ .Values.k8sServices.expose }}"
+    expose:  "{{ .Values.prometheusK8sServices.expose }}"
 spec:
   selector:
-{{ include "labels.selector" . | indent 4 }}
+    k8s-app: kube-dns
   type: ClusterIP
   clusterIP: None
   ports:

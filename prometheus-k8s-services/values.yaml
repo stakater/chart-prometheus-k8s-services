@@ -1,4 +1,4 @@
-k8sServices:
+prometheusK8sServices:
   labels:
     group: com.stakater.platform
     provider: stakater

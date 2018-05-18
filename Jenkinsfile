@@ -4,5 +4,5 @@
 def dummy = ""
 
 prepareAndUploadCharts {
-    charts = [ "k8s-services" ]
+    charts = [ "prometheus-k8s-services" ]
 }
