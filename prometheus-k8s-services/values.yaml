@@ -1,0 +1,7 @@
+prometheusK8sServices:
+  labels:
+    group: com.stakater.platform
+    provider: stakater
+    version: 2.2.0-rc.0
+  namespace: dev
+  expose: "true"
