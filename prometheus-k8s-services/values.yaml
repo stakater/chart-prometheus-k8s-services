@@ -3,5 +3,4 @@ prometheusK8sServices:
     group: com.stakater.platform
     provider: stakater
     version: 2.2.0-rc.0
-  namespace: dev
   expose: "true"
