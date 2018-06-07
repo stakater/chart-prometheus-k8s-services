@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "name" -}}
+{{- define "prometheus-k8s-services.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -10,23 +10,23 @@ Expand the name of the chart.
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "fullname" -}}
+{{- define "prometheus-k8s-services.fullname" -}}
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "labels.selector" -}}
-app: {{ template "name" . }}
+{{- define "prometheus-k8s-services.labels.selector" -}}
+app: {{ template "prometheus-k8s-services.name" . }}
 group: {{ .Values.prometheusK8sServices.labels.group }}
 provider: {{ .Values.prometheusK8sServices.labels.provider }}
 {{- end -}}
 
-{{- define "labels.stakater" -}}
-{{ template "labels.selector" . }}
+{{- define "prometheus-k8s-services.labels.stakater" -}}
+{{ template "prometheus-k8s-services.labels.selector" . }}
 version: "{{ .Values.prometheusK8sServices.labels.version }}"
 {{- end -}}
 
-{{- define "labels.chart" -}}
+{{- define "prometheus-k8s-services.labels.chart" -}}
 chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 release: {{ .Release.Name | quote }}
 heritage: {{ .Release.Service | quote }}

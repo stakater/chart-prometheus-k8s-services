@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: kube-dns-prometheus-discovery
   labels:
-{{ include "labels.stakater" . | indent 4 }}
-{{ include "labels.chart" . | indent 4 }}
+{{ include "prometheus-k8s-services.labels.stakater" . | indent 4 }}
+{{ include "prometheus-k8s-services.labels.chart" . | indent 4 }}
     expose:  "{{ .Values.prometheusK8sServices.expose }}"
 spec:
   selector:
