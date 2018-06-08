@@ -5,4 +5,5 @@ def dummy = ""
 
 prepareAndUploadCharts {
     charts = [ "prometheus-k8s-services" ]
+    isPublic = true
 }
