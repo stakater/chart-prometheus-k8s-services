@@ -2,10 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kube-controller-manager-prometheus-discovery
+  namespace: kube-system
   labels:
 {{ include "prometheus-k8s-services.labels.stakater" . | indent 4 }}
 {{ include "prometheus-k8s-services.labels.chart" . | indent 4 }}
     expose:  "{{ .Values.prometheusK8sServices.expose }}"
+    k8s-app: kube-controller-manager
 spec:
   selector:
     k8s-app: kube-controller-manager
