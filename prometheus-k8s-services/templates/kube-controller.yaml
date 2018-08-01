@@ -13,9 +13,6 @@ spec:
   clusterIP: None
   ports:
   - name: http-metrics
-    port: 8444
-    targetPort: 8444
-  selector:
-    openshift.io/component: controllers
-    openshift.io/control-plane: "true"
+    port: 80
+    targetPort: 80
 {{- end }}
